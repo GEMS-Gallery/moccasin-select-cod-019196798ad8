@@ -1,0 +1,17 @@
+type Track = 
+ record {
+   id: nat;
+   length: float64;
+   name: text;
+ };
+type LeaderboardEntry = 
+ record {
+   playerName: text;
+   time: float64;
+ };
+service : {
+  endRace: (nat, float64) -> ();
+  getLeaderboard: (nat) -> (vec LeaderboardEntry) query;
+  getTracks: () -> (vec Track) query;
+  startRace: (nat, text) -> (nat);
+}
